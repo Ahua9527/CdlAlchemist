@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* PWA 标题栏相关样式 */
+@supports (-webkit-appearance: none) and (stroke-color: transparent) {
+  .titlebar-area {
+    -webkit-app-region: drag;
+    app-region: drag;
+    background-color: var(--titlebar-bg);
+  }
+}
+
+@layer base {
+  :root {
+    --titlebar-bg: theme('colors.light.titlebar');
+  }
+
+  .dark {
+    --titlebar-bg: theme('colors.dark.titlebar');
+  }
+  
+  html {
+    @apply bg-light-bg dark:bg-dark-bg;
+  }
+  
+  body {
+    @apply bg-light-bg dark:bg-dark-bg;
+    margin: 0;
+  }
+
+  #root {
+    @apply bg-light-bg dark:bg-dark-bg;
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  * {
+    transition: background-color 0.5s ease,
+                color 0.5s ease,
+                border-color 0.5s ease;
+  }
+}
