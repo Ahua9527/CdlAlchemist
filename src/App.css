@@ -1,23 +1,46 @@
-#root {
+/**
+ * 根元素样式
+ * 设置最大宽度、边距和内边距，使内容居中显示
+ */
+ #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+/**
+ * Logo样式
+ * 设置高度、内边距和过渡效果
+ * will-change属性优化动画性能
+ */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 500ms;
 }
+
+/**
+ * Logo悬停效果
+ * 鼠标悬停时添加阴影效果
+ */
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+/**
+ * React Logo特殊悬停效果
+ * 为React Logo添加特定颜色的阴影效果
+ */
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/**
+ * Logo旋转动画关键帧
+ * 定义从0度到360度的旋转动画
+ */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -27,16 +50,29 @@
   }
 }
 
+/**
+ * 动画应用条件
+ * 只在用户未开启减少动画选项时应用旋转动画
+ * 为第二个链接中的logo添加无限旋转动画
+ */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/**
+ * 卡片容器样式
+ * 为卡片内容添加内边距
+ */
 .card {
   padding: 2em;
 }
 
+/**
+ * 文档阅读提示样式
+ * 使用浅灰色显示提示文本
+ */
 .read-the-docs {
   color: #888;
 }

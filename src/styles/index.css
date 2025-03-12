@@ -1,44 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * 引入Tailwind CSS的基础样式
+ */
+ @tailwind base;
 
-
-/* PWA 标题栏相关样式 */
-@supports (-webkit-appearance: none) and (stroke-color: transparent) {
-  .titlebar-area {
-    -webkit-app-region: drag;
-    app-region: drag;
-    background-color: var(--titlebar-bg);
-  }
-}
-
-@layer base {
-  :root {
-    --titlebar-bg: theme('colors.light.titlebar');
-  }
-
-  .dark {
-    --titlebar-bg: theme('colors.dark.titlebar');
-  }
-  
-  html {
-    @apply bg-light-bg dark:bg-dark-bg;
-  }
-  
-  body {
-    @apply bg-light-bg dark:bg-dark-bg;
-    margin: 0;
-  }
-
-  #root {
-    @apply bg-light-bg dark:bg-dark-bg;
-    min-height: 100vh;
-    height: 100%;
-  }
-
-  * {
-    transition: background-color 0.5s ease,
-                color 0.5s ease,
-                border-color 0.5s ease;
-  }
-}
+ /**
+  * 引入Tailwind CSS的组件样式
+  */
+ @tailwind components;
+ 
+ /**
+  * 引入Tailwind CSS的工具类样式
+  */
+ @tailwind utilities;
+ 
+ 
+ /**
+  * 标题栏区域样式
+  * 仅在支持WebKit外观属性和透明描边颜色的浏览器中应用
+  * 使标题栏区域可拖动，并应用主题颜色
+  */
+ @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+   .titlebar-area {
+     -webkit-app-region: drag;
+     app-region: drag;
+     background-color: var(--titlebar-bg);
+   }
+ }
+ 
+ /**
+  * 基础层自定义样式
+  */
+ @layer base {
+   /**
+    * 根元素变量定义
+    * 设置标题栏背景色变量，使用浅色主题颜色
+    */
+   :root {
+     --titlebar-bg: theme('colors.light.titlebar');
+   }
+ 
+   /**
+    * 深色主题变量定义
+    * 当.dark类应用时更新标题栏背景色
+    */
+   .dark {
+     --titlebar-bg: theme('colors.dark.titlebar');
+   }
+   
+   /**
+    * HTML元素基础样式
+    * 设置背景色，支持深色模式
+    */
+   html {
+     @apply bg-light-bg dark:bg-dark-bg;
+   }
+   
+   /**
+    * 主体元素基础样式
+    * 设置背景色，支持深色模式，移除默认外边距
+    */
+   body {
+     @apply bg-light-bg dark:bg-dark-bg;
+     margin: 0;
+   }
+ 
+   /**
+    * 根容器样式
+    * 设置背景色，最小高度和高度以填充整个视口
+    */
+   #root {
+     @apply bg-light-bg dark:bg-dark-bg;
+     min-height: 100vh;
+     height: 100%;
+   }
+ 
+   /**
+    * 全局过渡效果
+    * 为所有元素添加背景颜色、文字颜色和边框颜色的平滑过渡
+    * 使主题切换更加流畅
+    */
+   * {
+     transition: background-color 0.5s ease,
+                 color 0.5s ease,
+                 border-color 0.5s ease;
+   }
+ }
